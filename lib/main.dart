@@ -2,9 +2,15 @@ import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:instagram/auth/authentication.dart';
 import 'package:instagram/pages/login_page.dart';
+import 'package:instagram/provider/post_provider.dart';
+import 'package:instagram/provider/user_provider.dart';
 
 import 'package:instagram/tab_pages/tab.dart';
 import 'package:firebase_auth/firebase_auth.dart';
+import 'package:instagram/widgets/aler.dart';
+import 'package:provider/provider.dart';
+
+import 'widgets/aler.dart';
 
 Future main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -22,26 +28,41 @@ class MyApp extends StatelessWidget {
   // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      navigatorKey: navigatorKey,
-      debugShowCheckedModeBanner: false,
-      title: 'instagram',
-      theme: ThemeData(
-        scaffoldBackgroundColor: Colors.white,
-        primaryColor: Colors.black,
-        colorScheme: const ColorScheme.light(primary: Colors.black),
-        textTheme: const TextTheme(
-            headline1: TextStyle(
-                color: Colors.black, fontSize: 16, fontWeight: FontWeight.bold),
-            headline2: TextStyle(
-                color: Colors.black, fontSize: 13, fontWeight: FontWeight.bold),
-            bodyText1: TextStyle(
-                color: Color(0xff1FA1FF),
-                fontSize: 13,
-                fontWeight: FontWeight.bold)),
-        appBarTheme: const AppBarTheme(backgroundColor: Colors.white),
+    return MultiProvider(
+      providers: [
+        ChangeNotifierProvider(
+          create: (context) => UserProvider(),
+        ),
+        ChangeNotifierProvider(
+          create: (context) => PostProvider(),
+        ),
+      ],
+      child: MaterialApp(
+        scaffoldMessengerKey: messengerKey,
+        navigatorKey: navigatorKey,
+        debugShowCheckedModeBanner: false,
+        title: 'instagram',
+        theme: ThemeData(
+          scaffoldBackgroundColor: Colors.white,
+          primaryColor: Colors.black,
+          colorScheme: const ColorScheme.light(primary: Colors.black),
+          textTheme: const TextTheme(
+              headline1: TextStyle(
+                  color: Colors.black,
+                  fontSize: 16,
+                  fontWeight: FontWeight.bold),
+              headline2: TextStyle(
+                  color: Colors.black,
+                  fontSize: 13,
+                  fontWeight: FontWeight.bold),
+              bodyText1: TextStyle(
+                  color: Color(0xff1FA1FF),
+                  fontSize: 13,
+                  fontWeight: FontWeight.bold)),
+          appBarTheme: const AppBarTheme(backgroundColor: Colors.white),
+        ),
+        home: const Authentication(),
       ),
-      home: const Authentication(),
     );
   }
 }

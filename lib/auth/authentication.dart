@@ -1,5 +1,6 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
+import 'package:instagram/pages/email_varify_page.dart';
 import 'package:instagram/pages/login_page.dart';
 import 'package:instagram/tab_pages/tab.dart';
 
@@ -18,11 +19,13 @@ class Authentication extends StatelessWidget {
         //   TabPage();
         // }
 
-        StreamBuilder(
+      StreamBuilder(
       stream: FirebaseAuth.instance.authStateChanges(),
       builder: (context, snapshot) {
         if (snapshot.hasData) {
+
           return TabPage();
+          // return EmailVarifiationPage();
         } else {
           return LoginPage();
         }

@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
 
 import 'package:instagram/constant/dimension.dart';
-
+import 'package:instagram/widgets/avatar_widgets.dart';
 
 class StoryWidget extends StatelessWidget {
-  const StoryWidget({Key? key, required this.image}) : super(key: key); 
+  const StoryWidget({Key? key, required this.image}) : super(key: key);
 
   final String image;
 
@@ -20,26 +20,8 @@ class StoryWidget extends StatelessWidget {
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         crossAxisAlignment: CrossAxisAlignment.center,
         children: [
-          Container(
-            padding: EdgeInsets.all(2),
-            height: Dimension.pw55 + Dimension.pw10,
-            width: Dimension.pw55 + Dimension.pw10,
-            decoration: BoxDecoration(
-              borderRadius: BorderRadius.circular(200),
-              gradient: const LinearGradient(
-                begin: Alignment.topLeft,
-                end: Alignment.bottomRight,
-                colors: [Color(0xffc932c3), Color(0xffef8732)],
-              ),
-            ),
-            child: Container(
-              decoration: BoxDecoration(
-                  border: Border.all(width: 2, color: Colors.white),
-                  borderRadius: BorderRadius.circular(200),
-                  image: DecorationImage(
-                      fit: BoxFit.cover, image: NetworkImage(image))),
-            ),
-          ),
+          AvatarWidget(image: image),
+        
           SizedBox(
             height: Dimension.pw15,
             width: Dimension.pw70,

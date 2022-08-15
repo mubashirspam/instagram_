@@ -5,6 +5,7 @@ import 'package:instagram/tab_pages/home_page.dart';
 import 'package:instagram/tab_pages/profile_page.dart';
 import 'package:instagram/tab_pages/relas_page.dart';
 import 'package:instagram/tab_pages/search_page.dart';
+import 'package:instagram/widgets/avatar_widgets.dart';
 
 import '../constant/image_icons.dart';
 
@@ -88,22 +89,15 @@ class _TabPageState extends State<TabPage> {
                   ),
                 ),
                 GestureDetector(
-                  onTap: () {
-                    setState(() {
-                      selectedIndexNorifier.value = 4;
-                    });
-                  },
-                  child: Container(
-                    height: Dimension.pw25,
-                    width: Dimension.pw25,
-                    decoration: BoxDecoration(
-                        borderRadius: BorderRadius.circular(100),
-                        image: const DecorationImage(
-                          image: NetworkImage(
-                              Img.avatarnetwork),
-                        )),
-                  ),
-                ),
+                    onTap: () {
+                      setState(() {
+                        selectedIndexNorifier.value = 4;
+                      });
+                    },
+                    child: AvatarWidget(
+                      image: Img.avatarnetwork,
+                      isStory: false,
+                    )),
               ],
             ),
           ),

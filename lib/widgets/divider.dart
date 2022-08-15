@@ -6,7 +6,7 @@ import '../constant/colors.dart';
 Widget dividerGrey() => Padding(
       padding: EdgeInsets.symmetric(vertical: Dimension.f10),
       child: const Divider(
-        thickness: 01,
+        thickness: 0.5,
         color: AppColor.divderGreyColor,
       ),
     );

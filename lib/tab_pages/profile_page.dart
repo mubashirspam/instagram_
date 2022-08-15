@@ -2,6 +2,7 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_staggered_grid_view/flutter_staggered_grid_view.dart';
 import 'package:flutter_svg/svg.dart';
+import 'package:instagram/widgets/avatar_widgets.dart';
 import 'package:instagram/widgets/button.dart';
 import 'package:instagram/widgets/gridview_widgets.dart';
 import 'package:instagram/widgets/story_widget.dart';
@@ -132,26 +133,10 @@ class _ProfilePageState extends State<ProfilePage> {
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       crossAxisAlignment: CrossAxisAlignment.center,
                       children: [
-                        Container(
-                          padding: EdgeInsets.all(3),
-                          height: Dimension.w100 - Dimension.pw10,
-                          width: Dimension.w100 - Dimension.pw10,
-                          decoration: BoxDecoration(
-                            borderRadius: BorderRadius.circular(200),
-                            gradient: const LinearGradient(
-                              begin: Alignment.topLeft,
-                              end: Alignment.bottomRight,
-                              colors: [Color(0xffc932c3), Color(0xffef8732)],
-                            ),
-                          ),
-                          child: Container(
-                            decoration: BoxDecoration(
-                                border:
-                                    Border.all(width: 3, color: Colors.white),
-                                borderRadius: BorderRadius.circular(200),
-                                image: const DecorationImage(
-                                    image: NetworkImage(Img.avatarnetwork))),
-                          ),
+                        AvatarWidget(
+                          height: Dimension.w75 + Dimension.pw10,
+                          width: Dimension.w75 + Dimension.pw10,
+                          image: Img.avatarnetwork,
                         ),
                         Wrap(
                           crossAxisAlignment: WrapCrossAlignment.center,
