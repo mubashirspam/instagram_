@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:instagram/model/user_model.dart';
 
 class UserProvider with ChangeNotifier {
-  var db = FirebaseFirestore.instance;
+  // var db = FirebaseFirestore.instance;
 
   List<UserModel> _userDetails = [
     UserModel(
@@ -52,15 +52,15 @@ class UserProvider with ChangeNotifier {
     return [..._userDetails];
   }
 
-  Future getData() async {
-    try {
-      await db.collection("users").get().then((event) {
-        for (var doc in event.docs) {
-          print("${doc.id} => ${doc.data()}");
-        }
-      });
-    } catch (e) {
-      print(e);
-    }
-  }
+  // Future getData() async {
+  //   try {
+  //     await db.collection("user").get().then((event) {
+  //       for (var doc in event.docs) {
+  //         print("${doc.id} => ${doc.data()}");
+  //       }
+  //     });
+  //   } catch (e) {
+  //     print(e);
+  //   }
+  // }
 }

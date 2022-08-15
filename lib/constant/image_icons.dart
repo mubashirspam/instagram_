@@ -17,6 +17,7 @@ class Img {
   static const shop = "assets/icon/Shop.png";
   static const comment = "assets/icon/comment.png";
 
+
   static const avatarnetwork =
       "https://images.unsplash.com/photo-1570295999919-56ceb5ecca61?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8NHx8YXZhdGFyfGVufDB8fDB8fA%3D%3D&auto=format&fit=crop&w=800&q=60";
 
@@ -24,6 +25,7 @@ class Img {
 
   static const gridsvg = "assets/icon/grid.svg";
   static const tag = "assets/icon/tag.svg";
+  static const settings = "assets/icon/settings.svg";
 
   ///
 

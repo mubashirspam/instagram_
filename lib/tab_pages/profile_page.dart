@@ -1,11 +1,14 @@
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_staggered_grid_view/flutter_staggered_grid_view.dart';
 import 'package:flutter_svg/svg.dart';
+import 'package:instagram/provider/user_provider.dart';
 import 'package:instagram/widgets/avatar_widgets.dart';
 import 'package:instagram/widgets/button.dart';
 import 'package:instagram/widgets/gridview_widgets.dart';
 import 'package:instagram/widgets/story_widget.dart';
+import 'package:provider/provider.dart';
 
 import '../constant/dimension.dart';
 import '../constant/image_icons.dart';
@@ -41,11 +44,44 @@ class _ProfilePageState extends State<ProfilePage> {
 
   int currentindex = 0;
 
-  void bottomSheet() {}
+  var db = FirebaseFirestore.instance;
+
+  Future getData() async {
+    try {
+      await db.collection("user").get().then((event) {
+        for (var doc in event.docs) {
+          print("${doc.id} => ${doc.data()}");
+        }
+      });
+    } catch (e) {
+      print(e);
+    }
+  }
+
+  // Create a new user with a first and last name
+  final _user = <String, dynamic>{
+    "id": DateTime.now(),
+    "name": "Mubashir",
+    "email": "email@gmail.com",
+    "image_link": "Lovelace",
+    "followe": 120,
+    "following": 23,
+  };
+
+  Future addData() async {
+    try {
+// Add a new document with a generated ID
+      db.collection("user").add(_user).then((DocumentReference doc) =>
+          print('DocumentSnapshot added with ID: ${doc.id}'));
+    } catch (e) {
+      print(e);
+    }
+  }
 
   @override
   Widget build(BuildContext context) {
     final user = FirebaseAuth.instance.currentUser!;
+    // final userData = Provider.of<UserProvider>(context, listen: true).getData();
 
     final postgridHight =
         ((Dimension.flullScreen) / 3) * ((postItems.length) / 3).ceil() +
@@ -82,26 +118,67 @@ class _ProfilePageState extends State<ProfilePage> {
                 SizedBox(
                   width: Dimension.pw20,
                 ),
+
+                /// setting action sheet.........................
+
                 GestureDetector(
                   onTap: () {
                     showModalBottomSheet<void>(
+                      backgroundColor: Colors.transparent,
                       context: context,
-                      builder: (BuildContext context) => Container(
-                        height: Dimension.w250,
-                        child: Column(
-                          mainAxisAlignment: MainAxisAlignment.center,
-                          mainAxisSize: MainAxisSize.min,
-                          children: [
-                            GestureDetector(
-                              onTap: () {
-                                FirebaseAuth.instance.signOut();
-                                Navigator.pop(context);
-                              },
-                              child: Text("Logout"),
-                            )
-                          ],
-                        ),
-                      ),
+                      builder: (BuildContext context) {
+                        return Container(
+                          decoration: BoxDecoration(
+                              borderRadius: BorderRadius.only(
+                                topLeft: Radius.circular(16),
+                                topRight: Radius.circular(16),
+                              ),
+                              color: Colors.white),
+                          height: Dimension.fulscreenHeight,
+                          child: Column(
+                            mainAxisAlignment: MainAxisAlignment.start,
+                            crossAxisAlignment: CrossAxisAlignment.start,
+                            mainAxisSize: MainAxisSize.min,
+                            children: [
+                              Center(
+                                child: Container(
+                                  margin: EdgeInsets.only(top: Dimension.pw15),
+                                  height: 3,
+                                  width: Dimension.pw40,
+                                  decoration: BoxDecoration(
+                                      borderRadius: BorderRadius.circular(30),
+                                      color:
+                                          Color.fromARGB(255, 130, 129, 129)),
+                                ),
+                              ),
+                              settingsList(Img.settings, "Settings"),
+                              // GestureDetector(
+                              //     onTap: () {
+                              //       userData;
+                              //     },
+                              //     child:
+                              //         settingsList(Img.settings, "Get Data")),
+                              settingsList(Img.settings, "Settings"),
+                              settingsList(Img.settings, "Settings"),
+                              settingsList(Img.settings, "Settings"),
+                              ListTile(
+                                onTap: () => getData(),
+                                title: Text("Get dat"),
+                              ),
+                              ListTile(
+                                onTap: () => addData(),
+                                title: Text("Add data to base"),
+                              )
+                              // GestureDetector(
+                              //     onTap: () {
+                              //       FirebaseAuth.instance.signOut();
+                              //       Navigator.pop(context);
+                              //     },
+                              //     child: settingsList(Img.shop, "Logout")),
+                            ],
+                          ),
+                        );
+                      },
                     );
                   },
                   child: SizedBox(
@@ -291,6 +368,24 @@ class _ProfilePageState extends State<ProfilePage> {
               ),
             ),
           ),
+        ],
+      ),
+    );
+  }
+
+  Widget settingsList(String icon, String title) {
+    return SizedBox(
+      height: Dimension.w50,
+      child: Row(
+        crossAxisAlignment: CrossAxisAlignment.center,
+        children: [
+          Padding(
+            padding: EdgeInsets.symmetric(horizontal: Dimension.pw15),
+            child: SvgPicture.asset(icon),
+          ),
+          Expanded(
+            child: Text(title),
+          )
         ],
       ),
     );
