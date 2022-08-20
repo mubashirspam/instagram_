@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:instagram/constant/dimension.dart';
-import 'package:instagram/constant/image_icons.dart';
+import 'package:instagram/view/constant/dimension.dart';
+import 'package:instagram/view/constant/image_icons.dart';
 
 class AvatarWidget extends StatelessWidget {
   const AvatarWidget({

@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
-import 'package:instagram/constant/dimension.dart';
-import 'package:instagram/widgets/avatar_widgets.dart';
+import 'package:instagram/view/constant/dimension.dart';
+import 'package:instagram/view/widgets/avatar_widgets.dart';
 
 class StoryWidget extends StatelessWidget {
   const StoryWidget({Key? key, required this.image}) : super(key: key);
@@ -21,7 +21,6 @@ class StoryWidget extends StatelessWidget {
         crossAxisAlignment: CrossAxisAlignment.center,
         children: [
           AvatarWidget(image: image),
-        
           SizedBox(
             height: Dimension.pw15,
             width: Dimension.pw70,

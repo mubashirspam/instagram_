@@ -1,11 +1,12 @@
 import 'package:flutter/material.dart';
-import 'package:instagram/constant/dimension.dart';
-import 'package:instagram/tab_pages/favorite_page.dart';
-import 'package:instagram/tab_pages/home_page.dart';
-import 'package:instagram/tab_pages/profile_page.dart';
-import 'package:instagram/tab_pages/relas_page.dart';
-import 'package:instagram/tab_pages/search_page.dart';
-import 'package:instagram/widgets/avatar_widgets.dart';
+import 'package:instagram/test.dart';
+import 'package:instagram/view/constant/dimension.dart';
+import 'package:instagram/view/tab_pages/favorite_page.dart';
+import 'package:instagram/view/tab_pages/home_page.dart';
+import 'package:instagram/view/tab_pages/profile_page.dart';
+import 'package:instagram/view/tab_pages/relas_page.dart';
+import 'package:instagram/view/tab_pages/search_page.dart';
+import 'package:instagram/view/widgets/avatar_widgets.dart';
 
 import '../constant/image_icons.dart';
 
@@ -21,7 +22,7 @@ class TabPage extends StatefulWidget {
 class _TabPageState extends State<TabPage> {
   static const List<Widget> widgetOptions = <Widget>[
     HomePage(),
-    SearchPage(),
+    Test(),
     RealsPage(),
     HeartPage(),
     ProfilePage()

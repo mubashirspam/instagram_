@@ -1,15 +1,13 @@
 import 'dart:async';
-import 'dart:math';
 
 import 'package:firebase_auth/firebase_auth.dart';
-import 'package:firebase_core/firebase_core.dart';
+
 import 'package:flutter/material.dart';
-import 'package:flutter/src/foundation/key.dart';
-import 'package:flutter/src/widgets/framework.dart';
-import 'package:instagram/constant/dimension.dart';
-import 'package:instagram/pages/signup_page.dart';
-import 'package:instagram/tab_pages/tab.dart';
-import 'package:instagram/widgets/aler.dart';
+
+import 'package:instagram/view/constant/dimension.dart';
+import 'package:instagram/view/auth/signup_page.dart';
+import 'package:instagram/view/tab_pages/tab.dart';
+import 'package:instagram/view/widgets/aler.dart';
 
 class EmailVarifiationPage extends StatefulWidget {
   const EmailVarifiationPage({Key? key}) : super(key: key);

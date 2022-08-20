@@ -1,11 +1,14 @@
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:dots_indicator/dots_indicator.dart';
-import 'package:flutter/foundation.dart';
+
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
-import 'package:instagram/constant/dimension.dart';
-import 'package:instagram/constant/image_icons.dart';
-import 'package:instagram/pages/comments_page.dart';
+import 'package:instagram/model/comments_model.dart';
+import 'package:instagram/view/constant/dimension.dart';
+import 'package:instagram/view/constant/image_icons.dart';
+
+import '../pages/comments_page.dart';
+
 
 class PostCard extends StatefulWidget {
   const PostCard({
@@ -20,7 +23,7 @@ class PostCard extends StatefulWidget {
   final String name;
   final List imagelink;
   final String caption;
-  final List comments;
+  final List <CommetModel> comments;
 
   @override
   State<PostCard> createState() => _PostCardState();
@@ -246,7 +249,8 @@ class _PostCardState extends State<PostCard> {
                           builder: (context) => CommentsPage(
                               comments: widget.comments,
                               name: widget.name,
-                              caption: widget.caption)));
+                              caption: widget.caption
+                              )));
                 },
                 child: Text(
                   "view all ${widget.comments.length} Comments",

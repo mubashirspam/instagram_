@@ -2,10 +2,10 @@ import 'package:firebase_auth/firebase_auth.dart';
 
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
-import 'package:instagram/constant/dimension.dart';
-import 'package:instagram/constant/image_icons.dart';
+import 'package:instagram/view/constant/dimension.dart';
+import 'package:instagram/view/constant/image_icons.dart';
 import 'package:instagram/main.dart';
-import 'package:instagram/pages/signup_page.dart';
+import 'package:instagram/view/auth/signup_page.dart';
 
 
 import '../widgets/aler.dart';

@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:instagram/constant/image_icons.dart';
-import 'package:instagram/search_pages/search_all_reslut_page.dart';
-import 'package:instagram/widgets/gridview_widgets.dart';
+import 'package:instagram/view/constant/image_icons.dart';
+import 'package:instagram/view/search_pages/search_all_reslut_page.dart';
+import 'package:instagram/view/widgets/gridview_widgets.dart';
 
 import '../constant/dimension.dart';
 

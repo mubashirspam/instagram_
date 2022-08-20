@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:instagram/constant/dimension.dart';
+import 'package:instagram/view/constant/dimension.dart';
 
 import '../constant/colors.dart';
 

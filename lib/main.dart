@@ -1,16 +1,17 @@
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
-import 'package:instagram/auth/authentication.dart';
-import 'package:instagram/pages/login_page.dart';
-import 'package:instagram/provider/post_provider.dart';
-import 'package:instagram/provider/user_provider.dart';
+import 'package:instagram/view/auth/authentication.dart';
+import 'package:instagram/view/auth/login_page.dart';
 
-import 'package:instagram/tab_pages/tab.dart';
+
+import 'package:instagram/view/tab_pages/tab.dart';
 import 'package:firebase_auth/firebase_auth.dart';
-import 'package:instagram/widgets/aler.dart';
+import 'package:instagram/view/widgets/aler.dart';
 import 'package:provider/provider.dart';
 
-import 'widgets/aler.dart';
+import 'controller/provider/post_provider.dart';
+import 'controller/provider/user_provider.dart';
+import 'view/widgets/aler.dart';
 
 Future main() async {
   WidgetsFlutterBinding.ensureInitialized();

@@ -1,8 +1,7 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
-import 'package:instagram/pages/email_varify_page.dart';
-import 'package:instagram/pages/login_page.dart';
-import 'package:instagram/tab_pages/tab.dart';
+import 'package:instagram/view/auth/login_page.dart';
+import 'package:instagram/view/tab_pages/tab.dart';
 
 class Authentication extends StatelessWidget {
   const Authentication({Key? key}) : super(key: key);
